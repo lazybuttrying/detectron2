@@ -18,7 +18,7 @@ from detectron2.structures import BitMasks, Boxes, BoxMode, Keypoints, PolygonMa
 from detectron2.utils.file_io import PathManager
 
 from .colormap import random_color
-
+np.set_printoptions(threshold=np.inf, linewidth=np.inf)
 logger = logging.getLogger(__name__)
 
 __all__ = ["ColorMode", "VisImage", "Visualizer"]
@@ -431,7 +431,7 @@ class Visualizer:
             assigned_colors=colors,
             alpha=alpha,
         )
-        return self.output
+        return self.output, masks
 
     def draw_sem_seg(self, sem_seg, area_threshold=None, alpha=0.8):
         """
